@@ -1,4 +1,13 @@
-def palindrome(string: str, str_start: str = '', str_end: str = '', counter: int = 0) -> bool:
+def palindrome(string: str, str_start = None, str_end = None, counter = None) -> bool:
+    
+    # присвоение изменяемого значения внутри функции
+    if str_start is None:
+        str_start: str = ''
+    if str_end is None:
+        str_end: str = ''
+    if counter is None:
+        counter: int = 0
+
     if len(str_start) == len(string)//2 and str_start == str_end:
         return True
     if len(str_start) == len(string)//2 and str_start != str_end:
