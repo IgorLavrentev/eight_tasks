@@ -1,18 +1,10 @@
-def palindrome(string: str, str_start = None, str_end = None, counter = None) -> bool:
-    
-    # присвоение изменяемого значения внутри функции
-    if str_start is None:
-        str_start: str = ''
-    if str_end is None:
-        str_end: str = ''
-    if counter is None:
-        counter: int = 0
+def palindrome(string: str) -> bool:
 
-    if len(str_start) == len(string)//2 and str_start == str_end:
+    if len(string) == 1 or len(string) == 0: # условие окончания рекурсии
         return True
-    if len(str_start) == len(string)//2 and str_start != str_end:
+
+    if string[0] == string[len(string) - 1]: # сравнивание первого и последнего элемента
+        return palindrome(string[1 : len(string) - 1].replace(" ", ""))
+    
+    else:
         return False
-    str_start += string[counter] # добавление очередного элемента с начала
-    str_end += string[len(string) - counter - 1] # добавление очередного элемента с конца
-    counter += 1
-    return palindrome(string, str_start, str_end, counter)
