@@ -6,5 +6,5 @@ def palindrome(string: str) -> bool:
     if string[0] == string[len(string) - 1]: # сравнивание первого и последнего элемента
         return palindrome(string[1 : len(string) - 1].replace(" ", ""))
     
-    else:
+    if string[0] != string[len(string) - 1]: # сравнивание первого и последнего элемента
         return False
