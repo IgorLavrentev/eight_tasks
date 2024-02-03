@@ -1,10 +1,14 @@
 def palindrome(string: str) -> bool:
 
-    if len(string) == 1 or len(string) == 0: # условие окончания рекурсии
-        return True
+    def palindrome_two(string_t): # функция разворота строки
+        if string_t == "":
+            return string_t
+        if string_t != "":
+            return palindrome_two(string_t[1:]) + string_t[0]
+        return '' # для согласования операторов return
 
-    if string[0] == string[len(string) - 1]: # сравнивание первого и последнего элемента
-        return palindrome(string[1 : len(string) - 1].replace(" ", ""))
-    
-    if string[0] != string[len(string) - 1]: # сравнивание первого и последнего элемента
-        return False
+    string_two = string
+    string_two_2 = palindrome_two(string_two)
+
+    # сравнивание исхдной строки с развернутой
+    return string == string_two_2
