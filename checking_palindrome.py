@@ -1,15 +1,17 @@
-# функция разворота строки
-def line_reversal(string_t: str) -> str:
-    if string_t == "":
-        return string_t
-    if string_t != "":
-        return line_reversal(string_t[1:]) + string_t[0]
-    # для согласования операторов return
-    return ''
+# функция проверки является ли строка палиндромом
+def palindrome(string: str, n: int) -> bool:
 
-def palindrome(string: str) -> bool:
-    string_reverse = line_reversal(string)
-    # сравнивание исхдной строки с развернутой
-    if string == string_reverse:
+    if len(string)//2 ==len(string) - n: # условие окончания рекурсии
+        return True
+    if string[len(string) - n] == string[n - 1]: # сравнивание первого и последнего элемента
+        n -= 1
+        return palindrome(string, n)
+    return False
+
+# функция для получения исходных данных (строки)
+def accept(string: str) -> bool:
+
+    n = len(string) # длина строки
+    if palindrome(string, n):
         return True
     return False
