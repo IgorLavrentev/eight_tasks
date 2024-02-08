@@ -1,9 +1,9 @@
 # функция которая оставляет в списке только четные значения
 def even(list_original: list, counter: int) -> list:
     if counter < 1: # условие выхода из рекурсии
-        return list_original
-    if list_original[counter - 1] % 2 != 0: # проверка на нечетность
-        del list_original[counter - 1]
+        return None
+    if list_original[counter - 1] % 2 == 0: # проверка на четность
+        print(list_original[counter - 1])
     counter -= 1
     return even(list_original, counter)
 
