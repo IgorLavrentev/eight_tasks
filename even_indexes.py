@@ -2,9 +2,9 @@
 def even(list_original: list, counter: int) -> list:
     if counter < 1: # условие выхода из рекурсии
         return None
-    if (counter - 1) % 2 == 0: # проверка индекса на четность
-        print(list_original[counter - 1])
-    counter -= 1
+
+    print(list_original[len(list_original) - counter])
+    counter -= 2
     return even(list_original, counter)
 
 
