@@ -14,6 +14,10 @@ def second_maximum(initial_list, first_max, second_max, i) -> int:
 # функция для получения исходных данных (строки)
 def accept(initial_list: list) -> int:
     i = 0 # счетчик
-    first_max = initial_list[0] # первое максимальное
-    second_max = initial_list[1] # второе максимальное
+    if initial_list[0] > initial_list[1]:
+        first_max = initial_list[0] # первое максимальное
+        second_max = initial_list[1] # второе максимальное
+    if initial_list[0] < initial_list[1]:
+        first_max = initial_list[1] # первое максимальное
+        second_max = initial_list[0] # второе максимальное
     return second_maximum(initial_list, first_max, second_max, i)
